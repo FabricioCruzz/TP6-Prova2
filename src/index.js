@@ -1,10 +1,15 @@
 const express = require('express');
-// const customerRouter = require('./router/customer.route')
+
+const customersRouter = require('./router/customer.router')
+const productsRouter = require('./router/product.router')
+const orderedsRouter = require('./router/ordered.router')
 
 const app = express()
 const PORT = 8087
 
 app.use(express.json())
-app.use('/api/v1/prova', customerRouter)
+app.use('/api/v1/customers', customersRouter)
+app.use('/api/v1/products', productsRouter)
+app.use('/api/v1/ordereds', orderedsRouter)
 
-app.listen(PORT, () => console.log(`Server up on http://localhost:${PORT}/api/v1/prova`))
+app.listen(PORT, () => console.log('Server up'))
